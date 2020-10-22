@@ -1,0 +1,37 @@
+﻿@model Calculator.Models.CalculationModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="Index" method="post">
+    <div class="form-group">
+
+        <div class="row">
+            <label asp-for="FirstNumber" class="col-lg-2">First</label>
+            <input type="number" asp-for="FirstNumber" class="col-lg-3" placeholder="Enter the first number" required />
+        </div>
+        <br />
+
+        <div class="row">
+            <label asp-for="SecondNumber" class="col-lg-2">Second</label>
+            <input type="number" asp-for="SecondNumber" class="col-lg-3" placeholder="Enter the second number"  required/>
+        </div>
+        <br />
+
+        <div class="row">
+            <label asp-for="Operations" class="col-lg-2">Select operation</label>
+            <select asp-for="Operations" class="col-lg-3" asp-items="Html.GetEnumSelectList<Operation>()"></select>
+        </div>
+        <br />
+
+        <div class="row">
+            <label asp-for="Result" class="col-lg-2"></label>
+            <input type="number" disabled="disabled" class="col-lg-3" asp-for="Result" />
+        </div>
+        <br /><br />
+
+        <div class="row">
+            <input type="submit" value="Submit" asp-action="Index" />
+        </div>
+    </div>
+</form>
